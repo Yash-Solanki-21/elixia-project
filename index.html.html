@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELIXIA | Custom Branded Water Bottles for Hospitality</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --sapphire: #001B4D;
+            --slate: #2D3436;
+            --cloud: #F9FAFB;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--slate);
+            background-color: var(--cloud);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .bg-sapphire { background-color: var(--sapphire); }
+        .text-gold { color: var(--gold); }
+        .bg-gold { background-color: var(--gold); }
+        .border-gold { border-color: var(--gold); }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 27, 77, 0.8), rgba(0, 27, 77, 0.4)), 
+                        url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: white;
+            transition: all 0.3s transform;
+        }
+        .btn-primary:hover {
+            background-color: #bfa030;
+            transform: translateY(-2px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+
+                <img src="images/logo.png.jpeg" alt="logo" class="w-12 h-12  rounded-full flex items-center justify-center">
+
+                <span class="text-2xl font-bold tracking-widest text-sapphire brand-font">ELIXIA</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8 items-center text-sm font-medium uppercase tracking-wider">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="#how-it-works" class="nav-link">Process</a>
+                <a href="#contact" class="bg-sapphire text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition">Get a Quote</a>
+            </div>
+
+            <!-- Mobile Menu Icon -->
+            <button class="md:hidden text-sapphire" id="menuBtn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center hero-gradient text-white pt-20">
+        <div class="max-w-4xl px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Custom Bottles That Represent Your Café
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 font-light opacity-90 max-w-2xl mx-auto">
+                Elevate your table service with premium, branded glassware designed for the modern hospitality industry.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#contact" class="btn-primary px-10 py-4 rounded-full text-lg font-semibold">Partner With Us</a>
+                <a href="#products" class="border border-white/50 backdrop-blur-sm px-10 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition">Our Collection</a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="text-gold"></i>
+        </div>
+    </section>
+
+    <!-- Benefits Grid -->
+    <section class="py-24 bg-white px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="reveal text-center">
+                    <div class="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-gold">
+                        <i data-lucide="award"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 brand-font">Premium Branding</h3>
+                    <p class="text-gray-500 text-sm">Every bottle carries your identity, turning hydration into a marketing touchpoint.</p>
+                </div>
+                <div class="reveal text-center">
+                    <div class="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-gold">
+                        <i data-lucide="leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 brand-font">Eco-Conscious</h3>
+                    <p class="text-gray-500 text-sm">Eliminate single-use plastic with high-quality, refillable borosilicate glass.</p>
+                </div>
+                <div class="reveal text-center">
+                    <div class="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-gold">
+                        <i data-lucide="trending-down"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 brand-font">Cost-Effective</h3>
+                    <p class="text-gray-500 text-sm">Reduce long-term overheads with durable bulk supplies designed for heavy use.</p>
+                </div>
+                <div class="reveal text-center">
+                    <div class="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-gold">
+                        <i data-lucide="sparkles"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 brand-font">Superior Finish</h3>
+                    <p class="text-gray-500 text-sm">Precision screen printing that withstands industrial dishwashers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gray-50 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal relative">
+                <div class="absolute -top-10 -left-10 w-40 h-40 bg-gold/10 rounded-full blur-3xl"></div>
+                <img src="images/cafe.png.jpeg" alt="Cafe Interior" class="rounded-3xl shadow-2xl relative z-10">
+                <div class="absolute -bottom-6 -right-6 bg-white p-8 rounded-2xl shadow-xl z-20 hidden md:block border border-gold/20">
+                    <p class="text-sapphire font-bold italic">"Sustainability is no longer an option, it's the standard."</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <h2 class="text-4xl font-bold mb-6 text-sapphire brand-font">Our Story & Mission</h2>
+                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                    ELIXIA was born from a simple observation: the world's finest cafés were serving exceptional coffee, but their water presentation was often an afterthought.
+                </p>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    We specialize in bridge-to-table glassware that combines Italian aesthetics with industrial durability. Our mission is to help hospitality businesses build brand loyalty through every sip while drastically reducing plastic waste.
+                </p>
+                <div class="flex items-center space-x-4">
+                    <div class="h-px w-12 bg-gold"></div>
+                    <span class="uppercase tracking-widest text-xs font-bold text-sapphire">The Elixia Standard</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Customization Showcase -->
+    <section id="products" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-sapphire brand-font">The ELIXIA Collection</h2>
+                <p class="text-gray-500">Tailored to fit your brand's unique aesthetic.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="reveal group">
+                    <div class="relative overflow-hidden rounded-3xl bg-gray-100 mb-6 aspect-[4/5] flex items-center justify-center">
+                        <img src="images/bottle1.png.jpeg" alt="Nordic Bottle" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase text-sapphire">Most Popular</div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 brand-font">THE CLEARA 1000ml</h3>
+                    <p class="text-gray-500 mb-4 text-sm">Minimalist silhouette with a wide neck. Perfect for infused waters.</p>
+                    <ul class="text-xs space-y-2 text-gray-400 mb-6">
+                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 mr-2 text-gold"></i> Dishwasher Safe</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 mr-2 text-gold"></i> Laser Etching Available</li>
+                    </ul>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="reveal group">
+                    <div class="relative overflow-hidden rounded-3xl bg-gray-100 mb-6 aspect-[4/5] flex items-center justify-center">
+                        <img src="images/bottle2.png.jpeg" alt="Classic Carafe" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 brand-font">THE AQUIN 1000ml</h3>
+                    <p class="text-gray-500 mb-4 text-sm">Elegant, tapered design for premium dining and boutique hotels.</p>
+                    <ul class="text-xs space-y-2 text-gray-400 mb-6">
+                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 mr-2 text-gold"></i> Borosilicate Glass</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 mr-2 text-gold"></i> Full Color Printing</li>
+                    </ul>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="reveal group">
+                    <div class="relative overflow-hidden rounded-3xl bg-gray-100 mb-6 aspect-[4/5] flex items-center justify-center">
+                        <img src="images/bottle3.png.jpeg" alt="Slimline Bottle" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 brand-font">THE PUREON 1000ml</h3>
+                    <p class="text-gray-500 mb-4 text-sm">Compact design for quick-service cafés and bistro seating.</p>
+                    <ul class="text-xs space-y-2 text-gray-400 mb-6">
+                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 mr-2 text-gold"></i> Space Saving</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 mr-2 text-gold"></i> Custom Silicone Sleeves</li>
+                    </ul>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="reveal group">
+                    <div class="relative overflow-hidden rounded-3xl bg-gray-100 mb-6 aspect-[4/5] flex items-center justify-center">
+                        <img src="images/bottle4.png.jpeg" alt="Classic Carafe" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 brand-font">THE NEOVA 1000ml </h3>
+                    <p class="text-gray-500 mb-4 text-sm">Elegant, tapered design for premium dining and boutique hotels.</p>
+                    <ul class="text-xs space-y-2 text-gray-400 mb-6">
+                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 mr-2 text-gold"></i> Borosilicate Glass</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 mr-2 text-gold"></i> Full Color Printing</li>
+                    </ul>
+                </div>
+
+
+                <!-- Product 5 -->
+                <div class="reveal group">
+                    <div class="relative overflow-hidden rounded-3xl bg-gray-100 mb-6 aspect-[4/5] flex items-center justify-center">
+                        <img src="images/bottle5.png.jpeg" alt="Classic Carafe" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 brand-font">THE WATERRA 1000ml</h3>
+                    <p class="text-gray-500 mb-4 text-sm">Elegant, tapered design for premium dining and boutique hotels.</p>
+                    <ul class="text-xs space-y-2 text-gray-400 mb-6">
+                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 mr-2 text-gold"></i> Borosilicate Glass</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 mr-2 text-gold"></i> Full Color Printing</li>
+                    </ul>
+                </div>
+
+
+                <!-- Product 6 -->
+                <div class="reveal group">
+                    <div class="relative overflow-hidden rounded-3xl bg-gray-100 mb-6 aspect-[4/5] flex items-center justify-center">
+                        <img src="images/bottle6.png.jpeg" alt="Classic Carafe" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 brand-font">THE CLARIO 1000ml</h3>
+                    <p class="text-gray-500 mb-4 text-sm">Elegant, tapered design for premium dining and boutique hotels.</p>
+                    <ul class="text-xs space-y-2 text-gray-400 mb-6">
+                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 mr-2 text-gold"></i> Borosilicate Glass</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 mr-2 text-gold"></i> Full Color Printing</li>
+                    </ul>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section id="how-it-works" class="py-24 bg-sapphire text-white px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-8 brand-font">A Seamless Partnership</h2>
+                    <div class="space-y-12">
+                        <div class="flex space-x-6 reveal">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold font-bold">1</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 brand-font">Share Your Vision</h4>
+                                <p class="text-gray-400">Upload your logo and select your bottle silhouette. Our design team creates a 3D digital mockup within 24 hours.</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-6 reveal">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold font-bold">2</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 brand-font">Sample Production</h4>
+                                <p class="text-gray-400">Once approved, we print a physical master sample to ensure color accuracy and print durability meets your standards.</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-6 reveal">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold font-bold">3</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 brand-font">Bulk Fulfillment</h4>
+                                <p class="text-gray-400">We manufacture and deliver your branded glassware directly to your doorstep, anywhere in our service area.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white/5 p-12 rounded-3xl border border-white/10 reveal">
+                    <h3 class="text-2xl font-bold mb-6 text-gold brand-font text-center">Ready to Elevate?</h3>
+                    <p class="text-center mb-8 text-gray-300">Join 500+ café owners who have upgraded their service with ELIXIA.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
+                            <span>Minimum Order Quantity</span>
+                            <span class="text-gold font-bold">500+ Units</span>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
+                            <span>Print Lead Time</span>
+                            <span class="text-gold font-bold">7-10 Days</span>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
+                            <span>Global Shipping</span>
+                            <span class="text-gold font-bold text-xs uppercase">none</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Quote Form -->
+    <section id="contact" class="py-24 bg-white px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-3xl mx-auto glass-card p-10 md:p-16 rounded-[40px] shadow-2xl">
+                <div class="text-center mb-10">
+                    <h2 class="text-4xl font-bold text-sapphire mb-4 brand-font">Get Your Custom Quote</h2>
+                    <p class="text-gray-500">Tell us about your business and we'll handle the rest.</p>
+                </div>
+                
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Full Name</label>
+                            <input type="text" class="w-full bg-gray-50 border-none rounded-xl p-4 focus:ring-2 focus:ring-gold outline-none transition" placeholder="John Smith">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Business Name</label>
+                            <input type="text" class="w-full bg-gray-50 border-none rounded-xl p-4 focus:ring-2 focus:ring-gold outline-none transition" placeholder="The Coffee Lab">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Work Email</label>
+                        <input type="email" class="w-full bg-gray-50 border-none rounded-xl p-4 focus:ring-2 focus:ring-gold outline-none transition" placeholder="john@cafebusiness.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Estimated Quantity</label>
+                        <select class="w-full bg-gray-50 border-none rounded-xl p-4 focus:ring-2 focus:ring-gold outline-none transition">
+                            <option>48 - 100 bottles</option>
+                            <option>100 - 500 bottles</option>
+                            <option>500+ bottles (Chain Enterprise)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Water Type</label>
+                        <select class="w-full bg-gray-50 border-none rounded-xl p-4 focus:ring-2 focus:ring-gold outline-none transition">
+                            <option>Mineral Water</option>
+                            <option>Alkaline Water</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Additional Message</label>
+                        <textarea class="w-full bg-gray-50 border-none rounded-xl p-4 h-32 focus:ring-2 focus:ring-gold outline-none transition" placeholder="Tell us about your branding needs..."></textarea>
+                    </div>
+                    <button type="button" class="w-full btn-primary py-4 rounded-xl font-bold uppercase tracking-widest text-sm" onclick="alert('Thank you! Our design team will contact you within 24 hours.')">
+                        Request Pricing & Mockup
+                    </button>
+                </form>
+
+                <div class="mt-12 flex flex-col md:flex-row justify-between items-center pt-10 border-t border-gray-100 gap-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-green-50 text-green-600 rounded-full flex items-center justify-center">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase font-bold">WhatsApp Us</p>
+                            <p class="text-sm font-bold">+91 9821275266</p>
+                        </div>
+                    </div>
+                    <a href="https://www.instagram.com/elixia_beverages/">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase font-bold">Instagram Support</p>
+                            <p class="text-sm font-bold">elixia_beverages</p>
+                        </div>
+                    </div>
+                    </a>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase font-bold">Email Support</p>
+                            <p class="text-sm font-bold">elixiabeverages@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<!-- Footer -->
+    <footer class="bg-gray-900 text-white py-20 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+            <div class="max-w-xs">
+                <div class="flex items-center space-x-2 mb-6">
+
+                   <img src="images/logo.png.jpeg" alt="logo" class="w-12 h-12  rounded-full flex items-center justify-center">
+                   
+                    <span class="text-2xl font-bold tracking-widest text-white brand-font">ELIXIA</span>
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Premium customized glassware for the global hospitality market. Designed for durability, built for the environment.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+                <div>
+                    <h5 class="text-gold font-bold uppercase text-xs tracking-widest mb-6">Pages</h5>
+                    <ul class="text-gray-400 space-y-4 text-sm">
+                        <li><a href="#about" class="hover:text-white transition">Story</a></li>
+                        <li><a href="#products" class="hover:text-white transition">Collection</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Custom Quote</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-gold font-bold uppercase text-xs tracking-widest mb-6">Support</h5>
+                    <ul class="text-gray-400 space-y-4 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Bulk Orders</a></li>
+                        <li><a href="#" class="hover:text-white transition">Care Guide</a></li>
+                        <li><a href="#" class="hover:text-white transition">Delivery Info</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-2 md:col-span-1">
+                    <h5 class="text-gold font-bold uppercase text-xs tracking-widest mb-6">Connect</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-gold transition"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-gold transition"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-white/5 mt-20 pt-10 text-center text-xs text-gray-600">
+            &copy; 2025 ELIXIA Branded Solutions. All rights reserved. | Sustainable Craftsmanship.
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Reveal on Scroll Logic
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        // Initial check
+        reveal();
+
+        // Mobile Menu Simulation
+        document.getElementById('menuBtn').addEventListener('click', () => {
+            alert("Mobile menu toggled. Navigation would appear here on a live site.");
+        });
+    </script>
+</body>
+</html>
